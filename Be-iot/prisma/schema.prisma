@@ -1,0 +1,15 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("mysql://root:password@localhost:3306/iot_db")
+}
+
+model sensor {
+  id           Int      @id @default(autoincrement())
+  temperature  Float
+  humidity     Float
+  createdAt    DateTime @default(now())
+}
